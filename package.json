@@ -1,0 +1,33 @@
+{
+  "name": "howto-vanillajs-webcomponents-tdd",
+  "version": "1.0.0",
+  "description": "this project is to show a valid setup with exemple for building a web component in vanilla js with tests in TDD",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest components/**/*.test.js --watch",
+    "dev": "concurrently --kill-others \"live-server\" \"npm run test\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rhwy/Howto-vanillajs-webcomponents-tdd.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rhwy/Howto-vanillajs-webcomponents-tdd/issues"
+  },
+  "homepage": "https://github.com/rhwy/Howto-vanillajs-webcomponents-tdd#readme",
+  "devDependencies": {
+    "concurrently": "^5.1.0",
+    "jest": "^25.3.0",
+    "jest-environment-jsdom-sixteen": "^1.0.3",
+    "jsdom": "^16.2.2",
+    "jsdom-global": "^3.0.2"
+  },
+  "dependencies": {
+    "@types/jest": "^25.2.1"
+  },
+  "jest": {
+    "testEnvironment": "jest-environment-jsdom-sixteen"
+  }
+}
