@@ -87,7 +87,6 @@
     </style>
     <div id="form">
         <select id="selector">
-           
         </select>
         <button id="setValue">vote!</button>
     </div>
@@ -124,10 +123,20 @@
             if(!this.hasAttribute('value')){
                 this.setAttribute('value','');
             }
-            this.listOfValues = ['XS','S','M','L','XL'];
+            if(!this.hasAttribute('values')){
+                this.values = 'XS,S,M,L,XL,plop';
+            } else {
+                this.values = this.getAttribute('values');
+                //this.DefineOptions(this.$values.split(','));
+            }
+            
             this.$buttonReset.addEventListener('click',this.resetValue)
             this.$buttonSet.addEventListener('click',this.setValueFromCombo);
             this.render();
+        }
+        disconnectedCallback(){
+            this.$buttonReset.removeEventListener('click',this.resetValue)
+            this.$buttonSet.removeEventListener('click',this.setValueFromCombo);
         }
         resetValue()
         {
@@ -138,7 +147,7 @@
             this.value = this.$selector.value;
         }
         static get observedAttributes() {
-            return ['value'];
+            return ['value','values'];
         }
         ensureFormShownIfNoValueSet()
         {
@@ -161,23 +170,24 @@
             this.dispatchEvent(event);
         }
 
-        set listOfValues(values)
-        {
-            this.DefineOptions(values);
+        get values() {
+            return this.getAttribute('values') || '';
+        }
+        set values(newValues) {
+            this.setAttribute('values', newValues);
+            const listOfValues = newValues.split(',');
+            this.DefineOptions(listOfValues);
+            this.render();
         }
 
         DefineOptions(values)
         {
-            for(var i=0;i<this.$selector.options.length;i++)
-            {
-                this.$selector.remove(i);
-            }
-
-            for(var i=0;i<values.length;i++)
+            this.$selector.innerHTML = "";
+            for(var j=0;j<values.length;j++)
             {
                 const option = document.createElement('option');
-                option.value = values[i];
-                option.text = values[i];
+                option.value = values[j];
+                option.text = values[j];
                 this.$selector.add(option);
             }
         }

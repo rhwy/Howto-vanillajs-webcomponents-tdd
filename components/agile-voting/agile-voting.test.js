@@ -137,9 +137,21 @@ describe('<rc-agile-voting/>', () => {
             component.addEventListener('valueChanged',(e) => {
                 valueFromEvent = e.detail;
             });
-            component.value = selector.options[1].value;
+            selector.selectedIndex = 1;
+            component.setValueFromCombo();
+            expect(selector.value).toEqual('medium');  
+        }); 
+
+        it('should allow to set new possible values declaratively', ()=> {
+            const {component,selector,setvalue} = extractElements('#with-new-values');
+            var valueFromEvent = "";
+            component.addEventListener('valueChanged',(e) => {
+                valueFromEvent = e.detail;
+            });
+            selector.selectedIndex = 1;
+            component.setValueFromCombo();
             expect(valueFromEvent).toEqual('medium'); 
-        })
+        });
     });
 }); 
 
