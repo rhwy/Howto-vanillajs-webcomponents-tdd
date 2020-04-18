@@ -12,15 +12,25 @@
     <style>
         :host {
             position:relative;
-            display:flex;
-            justify-content : center;
-            align-items : center;
             width : 200px;
             height : 200px;
-            background-color: black;
-            color : white;
-            border-radius : 5px;
+            display:flex;
+            flex-direction: column;
+            font-size: 1vw;
+            justify-content : center;
+            align-items : center;
         }
+        #info {
+            background-color: var(--background-color,black);
+            color : var(--text-color,white);
+            width : 100%;
+            height : 100%;
+            display:flex;
+            justify-content : center;
+            align-items : center;    
+            border-radius : 10px;
+        }
+
         #value {
             font-size: 4em;
         }
@@ -73,7 +83,7 @@
             background-color:#EEE;
             box-sizing: border-box;
             text-align:center;
-                    transition: all 0.2s;
+            transition: all 0.2s;
             font-size: 2em;
             font-weight: 700;
             color: #444;
@@ -85,6 +95,7 @@
             background-color:#4eb5f1;
         }
     </style>
+    <slot name="title"><h3>t-shirt sizes</h3></slot>
     <div id="form">
         <select id="selector">
         </select>
@@ -127,7 +138,6 @@
                 this.values = 'XS,S,M,L,XL,plop';
             } else {
                 this.values = this.getAttribute('values');
-                //this.DefineOptions(this.$values.split(','));
             }
             
             this.$buttonReset.addEventListener('click',this.resetValue)
@@ -202,6 +212,11 @@
     customElements.define('rc-agile-voting',AgileVoting);
     log('rc-agile-voting defined in custom elements');
 
-    //export the component in order to be able to use it programmatically in js
-    module.exports = AgileVoting; 
+    try {
+        //do this in a try catch because module is not supported 
+        //when loaded as is on a page
+        //export the component in order to be able to use it programmatically in js
+        module.exports = AgileVoting; 
+    } catch {}
+    
 })();

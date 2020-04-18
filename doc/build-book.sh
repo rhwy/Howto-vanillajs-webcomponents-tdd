@@ -1,0 +1,1 @@
+pandoc full-article.md -o webcomponentsintddminiebook.epub -s --highlight-style zenburn --self-contained --from=markdown --toc --css=book.css
