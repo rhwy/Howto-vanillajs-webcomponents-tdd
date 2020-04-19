@@ -431,7 +431,7 @@ The setup is now quite complete  and you can stop here if you want to start buil
 
 
 
-# Part II -  Basic design of our component
+# Part III -  Basic design of our component
 
 ## start with visual feedback
 
@@ -720,7 +720,7 @@ this.$buttonReset.addEventListener(‘click’,this.resetValue);
 
 Now, everything is green again. 
 
-### Finally, manage the difference views
+### Finally, manage the different views
 
 The next thing the code is telling us to do now is to differentiate the 2 views as we have now a way to switch from one to other with the reset button:
 
