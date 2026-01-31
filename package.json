@@ -1,33 +1,30 @@
 {
   "name": "howto-vanillajs-webcomponents-tdd",
-  "version": "1.0.0",
-  "description": "this project is to show a valid setup with exemple for building a web component in vanilla js with tests in TDD",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Build web components in Vanilla JS with a simple TDD workflow",
+  "type": "module",
   "scripts": {
-    "test": "jest components/**/*.test.js --watch",
-    "dev": "concurrently --kill-others \"live-server\" \"npm run test\""
+    "test": "web-test-runner \"components/**/*.test.js\" --node-resolve --playwright --browsers chromium",
+    "test:watch": "npm run test -- --watch",
+    "test:all-browsers": "web-test-runner \"components/**/*.test.js\" --node-resolve --playwright --browsers chromium firefox webkit",
+    "dev": "live-server --port=3000",
+    "dev:full": "concurrently --kill-others \"npm run dev\" \"npm run test:watch\""
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rhwy/Howto-vanillajs-webcomponents-tdd.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Rui Carvalho",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/rhwy/Howto-vanillajs-webcomponents-tdd/issues"
   },
   "homepage": "https://github.com/rhwy/Howto-vanillajs-webcomponents-tdd#readme",
   "devDependencies": {
-    "concurrently": "^5.1.0",
-    "jest": "^25.3.0",
-    "jest-environment-jsdom-sixteen": "^1.0.3",
-    "jsdom": "^16.2.2",
-    "jsdom-global": "^3.0.2"
-  },
-  "dependencies": {
-    "@types/jest": "^25.2.1"
-  },
-  "jest": {
-    "testEnvironment": "jest-environment-jsdom-sixteen"
+    "@esm-bundle/chai": "^4.3.4-fix.0",
+    "@web/test-runner": "^0.19.0",
+    "@web/test-runner-playwright": "^0.11.0",
+    "concurrently": "^9.0.0",
+    "live-server": "^1.2.2"
   }
 }

@@ -1,399 +1,333 @@
-/* from http://bbebooksthailand.com/bb-CSS-boilerplate.html */
+/* 
+ * Modern eBook Stylesheet
+ * Clean, readable design for technical content
+ */
 
-/* This adds margins around every page to stop ADE's line numbers from being superimposed over content  */
+/* === Page Setup === */
 @page {
-    margin: 10px;
-  }
-  
-  /*===Reset code to prevent cross-reader strangeness===*/
-  html,
-  body,
-  div,
-  span,
-  applet,
-  object,
-  iframe,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  p,
-  blockquote,
-  pre,
-  a,
-  abbr,
-  acronym,
-  address,
-  big,
-  cite,
-  code,
-  del,
-  dfn,
-  em,
-  img,
-  ins,
-  kbd,
-  q,
-  s,
-  samp,
-  small,
-  strike,
-  strong,
-  sub,
-  sup,
-  tt,
-  var,
-  b,
-  u,
-  i,
-  center,
-  fieldset,
-  form,
-  label,
-  legend,
-  table,
-  caption,
-  tbody,
-  tfoot,
-  thead,
-  tr,
-  th,
-  td,
-  article,
-  aside,
-  canvas,
-  details,
-  embed,
-  figure,
-  figcaption,
-  footer,
-  header,
-  hgroup,
-  menu,
-  nav,
-  output,
-  ruby,
-  section,
-  summary,
-  time,
-  mark,
-  audio,
-  video {
+    margin: 1.5cm;
+}
+
+/* === Reset & Base === */
+* {
     margin: 0;
     padding: 0;
-    border: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-  }
-  
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
-  }
-  
-  ol,
-  ul,
-  li,
-  dl,
-  dt,
-  dd {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    vertical-align: baseline;
-  }
-  
-  /*===GENERAL PRESENTATION===*/
-  
-  /*===Body Presentation and Margins===*/
-  /* Text alignment is still a matter of debate. Feel free to change to text-align: left; */
-  body {
-    text-align: justify;
-    line-height: 120%;
-  }
-  
-  /*===Headings===*/
-  /* After page breaks, eReaders sometimes do not render margins above the content. Adjusting padding-top can help */
-  
-  h1 {
-    text-indent: 0;
-    text-align: center;
-    margin: 100px 0 0 0;
-    font-size: 2em;
-    font-weight: bold;
-    page-break-before: always;
-    line-height: 150%; /*gets squished otherwise on ADE */
-  }
-  
-  h2 {
-    text-indent: 0;
-    text-align: center;
-    margin: 50px 0 0 0;
-    font-size: 1.5em;
-    font-weight: bold;
-    page-break-before: always;
-    line-height: 135%; /*get squished otherwise on ADE */
-  }
-  
-  h3 {
-    text-indent: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #1a1a1a;
     text-align: left;
-    font-size: 1.4em;
-    font-weight: bold;
-    margin-top: 1.4em;
-  }
-  
-  h4 {
-    text-indent: 0;
-    text-align: left;
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-top: 1.2em;
-  }
-  
-  h5 {
-    text-indent: 0;
-    text-align: left;
-    font-size: 1.1em;
-    font-weight: bold;
-    margin-top: 1.1em;
-  }
-  
-  h6 {
-    text-indent: 0;
-    text-align: left;
-    font-size: 1em;
-    font-weight: bold;
-    margin-top: 1em;
-  }
-  
-  /* Hyphen and pagination Fixer */
-  /* Note: Do not try on the Kindle, it does not recognize the hyphens property */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    -webkit-hyphens: none !important;
-    hyphens: none;
-    page-break-after: avoid;
-    page-break-inside: avoid;
-  }
-  
-  /*===Paragraph Elements===*/
-  /* Margins are usually added on the top, left, and right, but not on the bottom to prevent certain eReaders not collapsing white space properly */
-  
-  /*first-line indent paragraph for fiction*/
-  p {
-    /* text-indent: 1.25em; */
-    margin: 0;
-    widows: 2;
-    orphans: 2;
-  }
-  
-  /* block type paragraph for non-fiction* /
-  /*
-  p
-  {
-  text-indent: 0;
-  margin: 1.0em 0 0 0;
-  widows: 2;
-  orphans: 2;
-  }
-  */
-  
-  /* for centered text and wrappers on images */
-  p.centered {
-    text-indent: 0;
-    margin: 1em 0 0 0;
-    text-align: center;
-  }
-  
-  /* section Breaks (can use centered-style for non-fiction) */
-  p.centeredbreak {
-    text-indent: 0;
-    margin: 1em 0 1em 0;
-    text-align: center;
-  }
-  
-  /* First sentence in chapters following heading */
-  p.texttop {
-    margin: 1.5em 0 0 0;
-    text-indent: 0;
-  }
-  
-  /* Use for second sentence to clear drop cap's float */
-  p.clearit {
-    clear: both;
-  }
-  
-  /* 1st level TOC */
-  p.toctext {
-    margin: 0 0 0 1.5em;
-    text-indent: 0;
-  }
-  
-  /* 2nd level TOC */
-  p.toctext2 {
-    margin: 0 0 0 2.5em;
-    text-indent: 0;
-  }
-  
-  /*==LISTS==*/
-  ul {
-    margin: 1em 0 0 2em;
-    text-align: left;
-  }
-  
-  ol {
-    margin: 1em 0 0 2em;
-    text-align: left;
-  }
-  
-  /*===IN-LINE STYLES===*/
-  /* Recommend avoiding use of <b>, <i>, and <u>. Use span tags instead */
-  span.i {
-    font-style: italic;
-  }
-  
-  span.b {
-    font-weight: bold;
-  }
-  
-  span.u {
-    text-decoration: underline;
-  }
-  
-  span.st {
-    text-decoration: line-through;
-  }
-  
-  /*==in-line combinations==*/
-  /* Using something like <span class="i b">... may seem okay, but it causes problems on some eReaders */
-  span.ib {
-    font-style: italic;
-    font-weight: bold;
-  }
-  
-  span.iu {
-    font-style: italic;
-    text-decoration: underline;
-  }
-  
-  span.bu {
-    font-weight: bold;
-    text-decoration: underline;
-  }
-  
-  span.ibu {
-    font-style: italic;
-    font-weight: bold;
-    text-decoration: underline;
-  }
-  
-  /* This fixes the bug where the text-align property of block-level elements is not recognized on iBooks 
-   example: html markup would look like <p class="centered"><span class="ipadcenterfix">Centered Content</span></p> */
-  
-  span.ipadcenterfix {
-    text-align: center;
-  }
-  
-  /*==IMAGES==*/
-  img {
+    padding: 1rem;
     max-width: 100%;
-  }
-  
-  /*==TABLES==*/
-  table {
-    margin: 1em auto;
-  }
-  
-  tr,
-  th,
-  td {
-    margin: 0;
-    padding: 2px;
-    border: 1px solid black;
-    font-size: 100%;
-    vertical-align: baseline;
-  }
-  
-  /* Superscripted Footnote Text */
-  .footnote {
-    vertical-align: super;
-    font-size: 0.75em;
+}
+
+/* === Typography === */
+
+/* Title Page */
+h1:first-of-type {
+    font-size: 2.5em;
+    font-weight: 700;
+    text-align: center;
+    margin: 4rem 0 2rem 0;
+    color: #1a365d;
+    border: none;
+    page-break-before: avoid;
+}
+
+/* Part Headers */
+h1 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 2em;
+    font-weight: 700;
+    color: #1a365d;
+    text-align: left;
+    margin: 3rem 0 1.5rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid #3182ce;
+    page-break-before: always;
+    page-break-after: avoid;
+}
+
+/* Section Headers */
+h2 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #2c5282;
+    margin: 2.5rem 0 1rem 0;
+    page-break-after: avoid;
+}
+
+/* Subsection Headers */
+h3 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 1.25em;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 2rem 0 0.75rem 0;
+    page-break-after: avoid;
+}
+
+h4, h5, h6 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 600;
+    color: #4a5568;
+    margin: 1.5rem 0 0.5rem 0;
+}
+
+h4 { font-size: 1.1em; }
+h5 { font-size: 1em; }
+h6 { font-size: 0.9em; }
+
+/* Paragraphs */
+p {
+    margin: 1em 0;
+    widows: 3;
+    orphans: 3;
+}
+
+/* Links */
+a {
+    color: #3182ce;
     text-decoration: none;
-  }
-  
-  /*==DROP CAPS==*/
-  span.dropcap {
-    font-size: 300%;
-    font-weight: bold;
-    height: 1em;
-    float: left;
-    margin: 0.3em 0.125em -0.4em 0.1em;
-  }
-  
-  /*==PULL QUOTE==*/
-  div.pullquote {
-    margin: 2em 2em 0 2em;
-    text-align: left;
-  }
-  
-  div.pullquote p {
-    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* === Lists === */
+ul, ol {
+    margin: 1em 0 1em 1.5em;
+    padding-left: 0.5em;
+}
+
+li {
+    margin: 0.4em 0;
+    line-height: 1.6;
+}
+
+li > ul, li > ol {
+    margin: 0.3em 0 0.3em 1em;
+}
+
+/* === Code === */
+code {
+    font-family: 'SF Mono', 'Fira Code', 'Source Code Pro', Menlo, Monaco, Consolas, monospace;
+    font-size: 0.85em;
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 4px;
+    padding: 0.15em 0.4em;
+    color: #c53030;
+}
+
+pre {
+    font-family: 'SF Mono', 'Fira Code', 'Source Code Pro', Menlo, Monaco, Consolas, monospace;
+    font-size: 0.8em;
+    line-height: 1.5;
+    background: #1a202c;
+    color: #e2e8f0;
+    border-radius: 8px;
+    padding: 1.25rem;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    page-break-inside: avoid;
+}
+
+pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+}
+
+/* === Blockquotes === */
+blockquote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+    background: #ebf8ff;
+    border-left: 4px solid #3182ce;
+    border-radius: 0 8px 8px 0;
+    color: #2c5282;
     font-style: italic;
-  }
-  
-  div.pullquote hr {
-    width: 100%;
-    margin: 0;
-    height: 3px;
-    color: #2e8de0;
-    background-color: #2e8de0;
-    border: 0;
-  }
-  
-  /*==BLOCK QUOTE==*/
-  div.blockquote {
-    margin: 1em 1.5em 0 1.5em;
-    text-align: left;
+}
+
+blockquote p {
+    margin: 0.5em 0;
+}
+
+blockquote p:first-child {
+    margin-top: 0;
+}
+
+blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* === Images === */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 2rem auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+figure {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+figcaption {
     font-size: 0.9em;
-  }
-  
-  /*==eBook Specific Formatting Below Here==*/
-  body {
-    padding: 1em;
-  }
-  
-  pre,
-  code {
-    font-size: 80%;
-    line-height: 100%;
-    overflow-wrap: anywhere;
-  }
-  
-  pre {
-    border-left: 1px #000 solid;
-    padding-left: 10px;
-  }
-  
-  blockquote {
-    color: #666666;
-    margin: 1em 0;
-    padding-left: 1.5em;
-    border-left: 0.5em #eee solid;
-  }
-  
-  p {
-    margin: 1em 0;
-  }
-  
-  /* used for strings in code when using HTML */
-  span.st {
-    text-decoration: initial;
-  }
+    color: #718096;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* === Tables === */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9em;
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border: 1px solid #e2e8f0;
+}
+
+th {
+    background: #f7fafc;
+    font-weight: 600;
+    color: #2d3748;
+}
+
+tr:nth-child(even) {
+    background: #f7fafc;
+}
+
+/* === Horizontal Rule === */
+hr {
+    border: none;
+    border-top: 2px solid #e2e8f0;
+    margin: 3rem 0;
+}
+
+/* === Emphasis === */
+strong, b {
+    font-weight: 600;
+    color: #1a202c;
+}
+
+em, i {
+    font-style: italic;
+}
+
+/* === Special Blocks === */
+
+/* Tip/Note boxes (for blockquotes starting with emoji) */
+blockquote:has(p:first-child:contains("💡")),
+blockquote:has(p:first-child:contains("📝")),
+blockquote:has(p:first-child:contains("⚠️")) {
+    background: #fffaf0;
+    border-left-color: #dd6b20;
+}
+
+/* === Title Page Styling === */
+.title {
+    font-size: 3em;
+    text-align: center;
+    margin-top: 20%;
+    color: #1a365d;
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 1.5em;
+    text-align: center;
+    color: #4a5568;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.author {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1.2em;
+    color: #718096;
+}
+
+/* === Page Breaks === */
+.page-break {
+    page-break-after: always;
+}
+
+/* === Print Optimizations === */
+@media print {
+    body {
+        font-size: 11pt;
+    }
+    
+    pre {
+        border: 1px solid #ccc;
+        background: #f5f5f5 !important;
+        color: #333 !important;
+    }
+    
+    a {
+        color: inherit;
+        text-decoration: underline;
+    }
+    
+    img {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}
+
+/* === Syntax Highlighting Enhancements (Zenburn-ish) === */
+pre .kw { color: #f0dfaf; font-weight: bold; }  /* keyword */
+pre .dt { color: #dfdfbf; }                      /* data type */
+pre .dv { color: #dcdccc; }                      /* decimal value */
+pre .bn { color: #dca3a3; }                      /* base N */
+pre .fl { color: #c0bed1; }                      /* float */
+pre .ch { color: #dca3a3; }                      /* char */
+pre .st { color: #cc9393; }                      /* string */
+pre .co { color: #7f9f7f; font-style: italic; } /* comment */
+pre .ot { color: #efef8f; }                      /* other */
+pre .al { color: #ffcfaf; }                      /* alert */
+pre .fu { color: #efef8f; }                      /* function */
+pre .er { color: #c3bf9f; }                      /* error */
+
+/* === Responsive Adjustments === */
+@media (max-width: 600px) {
+    body {
+        padding: 0.5rem;
+        font-size: 0.95rem;
+    }
+    
+    h1 { font-size: 1.75em; }
+    h2 { font-size: 1.4em; }
+    h3 { font-size: 1.2em; }
+    
+    pre {
+        padding: 1rem;
+        font-size: 0.75em;
+    }
+    
+    ul, ol {
+        margin-left: 1em;
+    }
+}
